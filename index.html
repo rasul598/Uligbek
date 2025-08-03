@@ -1,0 +1,721 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulugbek | Aydana - Свадьба</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif;
+            color: #000;
+        }
+        
+        body {
+            background-color: #fff9f9;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        section {
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .divider {
+            height: 80px;
+            position: relative;
+            margin: 40px 0;
+        }
+        
+        .divider:before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: #ddd;
+            transform: translateX(-50%);
+        }
+        
+        .initial-letters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            height: 100px;
+            position: relative;
+        }
+        
+        .letter {
+            font-size: 72px;
+            font-weight: 700;
+            position: absolute;
+            line-height: 1;
+        }
+        
+        .letter-u {
+            left: calc(50% - 60px);
+        }
+        
+        .letter-a {
+            right: calc(50% - 60px);
+        }
+        
+        .vertical-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 60px;
+            width: 2px;
+            background-color: #000;
+            top: 10px;
+        }
+        
+        h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+        
+        .couple-names {
+            font-size: 28px;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+        
+        .couple-photo {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            margin: 0 auto 30px;
+            display: block;
+            border: 1px solid #ddd;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .music-section {
+            margin-bottom: 40px;
+        }
+        
+        .heart-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin: 0 auto;
+            font-size: 40px;
+            color: #000;
+            transition: all 0.3s ease;
+            display: block;
+        }
+        
+        .heart-instruction {
+            font-size: 14px;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        .date-section {
+            margin-bottom: 60px;
+        }
+        
+        .date {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .time {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        
+        .horizontal-line {
+            width: 100px;
+            height: 1px;
+            background-color: #000;
+            margin: 20px auto;
+        }
+        
+        .restaurant-photo {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            object-fit: cover;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .btn:hover {
+            background-color: #333;
+            transform: translateY(-3px);
+        }
+        
+        .timing-container {
+            max-width: 500px;
+            margin: 40px auto;
+            text-align: center;
+        }
+        
+        .timing-event {
+            margin: 30px 0;
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 0.8s ease;
+        }
+        
+        .timing-event:nth-child(even) {
+            transform: translateX(100px);
+        }
+        
+        .timing-event.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .timing-time {
+            font-size: 24px;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        
+        .timing-desc {
+            font-size: 18px;
+        }
+        
+        .attendance-form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+        }
+        
+        .radio-option input {
+            margin-right: 8px;
+        }
+        
+        .submit-btn {
+            background: #000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: block;
+            width: 100%;
+            font-weight: 600;
+        }
+        
+        .submit-btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+        
+        .form-message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .success {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .love-story {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.8;
+            padding: 0 20px;
+        }
+        
+        .love-story p {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .countdown-item {
+            text-align: center;
+        }
+        
+        .countdown-number {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .countdown-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .map-container {
+            display: none;
+            margin: 40px auto;
+            max-width: 800px;
+            height: 400px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .footer-letters {
+            display: flex;
+            justify-content: center;
+            margin: 60px 0 30px;
+            height: 100px;
+            position: relative;
+        }
+        
+        .footer-letter {
+            font-size: 72px;
+            font-weight: 700;
+            position: absolute;
+            line-height: 1;
+        }
+        
+        .footer-letter-u {
+            left: calc(50% - 60px);
+        }
+        
+        .footer-letter-a {
+            right: calc(50% - 60px);
+        }
+        
+        .footer-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 60px;
+            width: 2px;
+            background-color: #000;
+            top: 10px;
+        }
+        
+        .explosion {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 72px;
+            color: #ff4500;
+            text-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500, 0 0 30px #ff4500;
+            animation: explode 2s infinite;
+        }
+
+        @keyframes explode {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.5); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(2); }
+        }
+
+        @media (max-width: 768px) {
+            .letter, .footer-letter {
+                font-size: 48px;
+            }
+            
+            h2 {
+                font-size: 28px;
+            }
+            
+            .couple-photo {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .vertical-line, .footer-line {
+                height: 50px;
+                top: 5px;
+            }
+            
+            .timing-time {
+                font-size: 20px;
+            }
+            
+            .timing-desc {
+                font-size: 16px;
+            }
+            
+            .love-story {
+                font-size: 16px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Блок 1: Главные буквы пары и фото -->
+        <section>
+            <div class="initial-letters">
+                <div class="letter letter-u">U</div>
+                <div class="vertical-line"></div>
+                <div class="letter letter-a">A</div>
+            </div>
+            <div class="divider"></div>
+            <img src="couple.jpg" alt="Ulugbek и Aydana" class="couple-photo">
+            <div class="couple-names">Ulugbek | Aydana</div>
+            
+            <!-- Черное сердечко для музыки -->
+            <div class="music-section">
+                <button class="heart-btn" id="music-btn">
+                    <i class="fas fa-heart"></i>
+                </button>
+                <div class="heart-instruction">(нажмите на сердце)</div>
+            </div>
+            
+            <p class="invitation-text">Мы приглашаем вас на нашу свадьбу</p>
+            <audio id="wedding-music" loop>
+                <source src="wedding_music.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудио элемент.
+            </audio>
+        </section>
+        
+        <!-- Блок 2: Дата свадьбы -->
+        <section class="date-section">
+            <h2>DATE</h2>
+            <div class="horizontal-line"></div>
+            <div class="date">07.08.2025</div>
+            <div class="time">18:00</div>
+            <div class="horizontal-line"></div>
+        </section>
+        
+        <!-- Блок 3: Место проведения -->
+        <section>
+            <h2>LOCATION</h2>
+            <h3>Ресторан "Ayziya"</h3>
+            <p>ул. Аллаяра Досназарова, 319/1</p>
+            <img src="restaurant.jpg" alt="Ресторан Ayziya" class="restaurant-photo">
+            <button class="btn" id="map-btn">ПОСМОТРЕТЬ НА КАРТЕ</button>
+            <div class="map-container" id="map">
+                <iframe src="https://maps.google.com/maps?q=42.519722,59.6025&z=15&output=embed" allowfullscreen></iframe>
+            </div>
+        </section>
+        
+        <!-- Блок 4: Тайминг мероприятия -->
+        <section>
+            <h2>TIMING</h2>
+            <div class="timing-container">
+                <div class="timing-event">
+                    <div class="timing-time">18:00</div>
+                    <div class="timing-desc">Сбор гостей</div>
+                </div>
+                
+                <div class="timing-event">
+                    <div class="timing-time">18:30</div>
+                    <div class="timing-desc">Церемония</div>
+                </div>
+                
+                <div class="timing-event">
+                    <div class="timing-time">19:00</div>
+                    <div class="timing-desc">Банкет</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Блок 5: Подтверждение присутствия -->
+        <section id="attendance">
+            <h2>ATTENDANCE</h2>
+            <form id="attendance-form" class="attendance-form" action="https://formspree.io/f/hurlimanbazarbaeva19@icloud.com" method="POST">
+                <div class="form-group">
+                    <label for="name">Ваше имя и фамилия*</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Ваш email*</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Вы придёте на нашу свадьбу?*</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="attend-yes" name="attendance" value="Да, с радостью!" required>
+                            <label for="attend-yes">Да, с радостью!</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="attend-no" name="attendance" value="К сожалению, не смогу">
+                            <label for="attend-no">Не смогу</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" id="companion-field" style="display:none;">
+                    <label for="companion">Имя вашего сопровождающего</label>
+                    <input type="text" id="companion" name="companion">
+                </div>
+                <div class="form-group">
+                    <label for="message">Ваши пожелания</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Отправить</button>
+                <div id="form-message" class="form-message"></div>
+            </form>
+        </section>
+        
+        <!-- Блок 6: История любви -->
+        <section>
+            <h2>LOVE STORY</h2>
+            <div class="love-story">
+                <p>Дорогие и родные нашему сердцу гости,</p>
+                <p>Сегодня, делясь с вами самым важным днём нашей жизни, я хочу открыть вам сердце и рассказать историю, которая стала для меня всем — историю нашей любви с Aydana.</p>
+                <p>Это началось, казалось бы, случайно — с поездки в Ташкент на свадьбу друга. Я не знал тогда, что судьба ведёт меня к самому главному человеку в моей жизни.</p>
+                <p>Увидев её в Instagram, я почувствовал что-то необычное. Это был не просто интерес, это было глубокое чувство, ещё неосознанное, но уже живое. Через общего друга я взял её номер, отправил букет… и позвонил.</p>
+                <p>Когда я услышал её голос, всё в мире будто замерло. Спокойный, добрый, тёплый — он сразу отозвался во мне.</p>
+                <p>Так началась наша история.</p>
+                <p>Мы общались, смеялись, делились мечтами. Но были и трудности, сомнения, расстояния, испытания. Мы не сразу пришли к тому, кем мы стали. Мы строили свою любовь — не торопясь, но с каждым днём всё крепче.</p>
+                <p>У нас было всё: радость и слёзы, вдохновение и борьба, моменты, когда казалось, что весь мир — против, и моменты, когда нам было достаточно просто держаться за руки.</p>
+                <p>12 апреля, в уютной атмосфере ресторана, я сделал ей предложение — дрожащим голосом, с сердцем, бьющимся в груди.</p>
+                <p>Она сказала «Да», и это стало началом новой главы нашей истории.</p>
+                <p>Сейчас мы — единое целое. Мы вдохновляем друг друга, учимся друг у друга, мечтаем и идём вперёд, рука об руку.</p>
+                <p>И пусть впереди нас ждёт ещё многое, я уже точно знаю одно:</p>
+                <p>моя самая большая мечта сбылась — я женюсь на девушке, которую люблю всей душой.</p>
+                <p>Спасибо каждому из вас за то, что вы рядом. Ваше присутствие наполняет этот день светом, теплом и незабываемыми чувствами.</p>
+                <p>С бесконечной любовью и благодарностью, Ulugbek</p>
+            </div>
+            
+            <h3>До нашей свадьбы осталось</h3>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Дней</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Часов</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Минут</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Секунд</div>
+                </div>
+            </div>
+            <div class="explosion" id="explosion">Будьте счастливы!</div>
+        </section>
+        
+        <!-- Блок 7: Завершение -->
+        <section>
+            <h2>SEE YOU SOON</h2>
+            <div class="footer-letters">
+                <div class="footer-letter footer-letter-u">U</div>
+                <div class="footer-line"></div>
+                <div class="footer-letter footer-letter-a">A</div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Управление музыкой
+            const musicBtn = document.getElementById('music-btn');
+            const music = document.getElementById('wedding-music');
+            let isPlaying = false;
+            
+            music.volume = 0.5;
+            
+            function toggleMusic() {
+                if (isPlaying) {
+                    music.pause();
+                    musicBtn.innerHTML = '<i class="fas fa-heart"></i>';
+                } else {
+                    music.play()
+                        .then(() => {
+                            musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                        })
+                        .catch(error => {
+                            console.error('Ошибка воспроизведения:', error);
+                        });
+                }
+                isPlaying = !isPlaying;
+            }
+            
+            musicBtn.addEventListener('click', toggleMusic);
+            
+            // Карта
+            const mapBtn = document.getElementById('map-btn');
+            const map = document.getElementById('map');
+            
+            mapBtn.addEventListener('click', function() {
+                if (map.style.display === 'block') {
+                    map.style.display = 'none';
+                    mapBtn.textContent = 'ПОСМОТРЕТЬ НА КАРТЕ';
+                } else {
+                    map.style.display = 'block';
+                    mapBtn.textContent = 'СКРЫТЬ КАРТУ';
+                }
+            });
+            
+            // Поле для сопровождающего
+            document.querySelectorAll('input[name="attendance"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    document.getElementById('companion-field').style.display = 
+                        this.value === 'Да, с радостью!' ? 'block' : 'none';
+                });
+            });
+            
+            // Таймер
+            const explosion = document.getElementById('explosion');
+            function updateCountdown() {
+                const weddingDate = new Date('2025-08-07T18:00:00+05:00');
+                const now = new Date();
+                const diff = weddingDate - now;
+                
+                if (diff <= 0) {
+                    document.getElementById('days').textContent = '00';
+                    document.getElementById('hours').textContent = '00';
+                    document.getElementById('minutes').textContent = '00';
+                    document.getElementById('seconds').textContent = '00';
+                    explosion.style.display = 'block';
+                    return;
+                }
+                
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            }
+            
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+            
+            // Анимация тайминга
+            function animateTimingEvents() {
+                const events = document.querySelectorAll('.timing-event');
+                events.forEach((event, index) => {
+                    setTimeout(() => {
+                        event.classList.add('visible');
+                    }, 300 * index);
+                });
+            }
+            
+            setTimeout(animateTimingEvents, 500);
+            
+            // Обработчик формы
+            const form = document.getElementById('attendance-form');
+            const formMessage = document.getElementById('form-message');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        formMessage.textContent = 'Спасибо! Ваш ответ сохранен.';
+                        formMessage.className = 'form-message success';
+                        formMessage.style.display = 'block';
+                        form.reset();
+                    } else {
+                        throw new Error('Ошибка сети');
+                    }
+                })
+                .catch(error => {
+                    formMessage.textContent = 'Произошла ошибка. Пожалуйста, попробуйте еще раз.';
+                    formMessage.className = 'form-message error';
+                    formMessage.style.display = 'block';
+                    console.error('Error:', error);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
